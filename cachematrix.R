@@ -1,8 +1,9 @@
 ## These two functions helps avoid recalculation of matrix inverse
-## with a help of caching. One can create a special matrix object via matObj <- makeCacheMatrix(myMatrix)
-## and use cacheSolve(matObj) to get inverse of myMatrix. This inverse is computed only once.
-## The object matObj has get and set methods for accessing source matrix and setInverse, getInverse matrix for
-## accessing cached inverse matrix.
+## with a help of caching. One can create a special matrix object via 
+## matObj <- makeCacheMatrix(myMatrix) and use cacheSolve(matObj) to get
+## the inverse of myMatrix. This inverse is computed only once.
+## The object matObj has get and set methods for accessing source matrix 
+## and setInverse, getInverse matrix for accessing cached inverse matrix.
 
 ## This function creates a special "matrix" object that can cache its inverse.
 makeCacheMatrix <- function(x = matrix()) {
@@ -20,9 +21,9 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## This function computes the inverse of the special "matrix" returned by makeCacheMatrix above. 
-## If the inverse has already been calculated (and the matrix has not changed), 
-## then the cachesolve should retrieve the inverse from the cache.
+## This function computes the inverse of the special "matrix" returned by 
+## makeCacheMatrix function above. If the inverse has already been calculated
+## then the cachesolve returns the inverse from the cache.
 cacheSolve <- function(x, ...) {
     inv <- x$getInverse()
     if(!is.null(inv)) {
